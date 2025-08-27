@@ -22,7 +22,7 @@
             z-index: 9999;
             flex-direction: column;
             color: white;
-            font-size: 3rem;
+            font-size: 2rem;
             font-family: "Segoe UI", sans-serif;
             letter-spacing: 2px;
         }
@@ -31,13 +31,13 @@
             border: 6px solid rgba(255, 255, 255, 0.3);
             border-top: 6px solid white;
             border-radius: 50%;
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             animation: spin 2s linear infinite;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: white;
         }
 
@@ -47,23 +47,14 @@
             }
         }
 
-        /* Page */
         body {
             background: linear-gradient(to right, #fff3e0, #ffe0b2);
             font-family: "Georgia", serif;
         }
 
-        .main-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        /* Registration Form */
         .form-container {
             background: #fffaf0;
-            padding: 30px;
+            padding: 20px;
             border-radius: 12px;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             border-top: 5px solid #ff9933;
@@ -73,6 +64,7 @@
             color: #cc6600;
             margin-bottom: 20px;
             text-align: center;
+            font-size: 1.5rem;
         }
 
         .btn-primary {
@@ -85,11 +77,10 @@
             background: #993300;
         }
 
-        /* Library & Notice Board */
         .library,
         .notice-board {
             background: #fff;
-            padding: 20px;
+            padding: 15px;
             border-radius: 12px;
             margin-bottom: 20px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -101,16 +92,18 @@
             margin-bottom: 15px;
             border-bottom: 2px solid #ff9933;
             padding-bottom: 5px;
+            font-size: 1.2rem;
         }
 
         .library-item {
             background: #fff3e0;
-            padding: 15px;
+            padding: 12px;
             margin-bottom: 10px;
             border-radius: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 0.9rem;
         }
 
         .notice-board {
@@ -119,13 +112,23 @@
         }
 
         .notice-item {
-            padding: 10px;
+            padding: 8px;
             border-bottom: 1px dashed #cc6600;
             color: #663300;
+            font-size: 0.9rem;
         }
 
         .notice-item:last-child {
             border-bottom: none;
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 768px) {
+            .om-circle {
+                width: 60px;
+                height: 60px;
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -133,64 +136,72 @@
 <body>
     <!-- Loader -->
     <div id="loader">
-        <div class="om-circle"><span><img
-                    src="/BoOk/184-1841410_sunlight-clipart-sudarshan-chakra-surya-symbol-removebg-preview.png" alt=""
-                    height="70"></span></div>
+        <div class="om-circle">
+            <span>
+                <img src="/BoOk/184-1841410_sunlight-clipart-sudarshan-chakra-surya-symbol-removebg-preview.png" alt=""
+                    height="40">
+            </span>
+        </div>
         <div class="mt-3">Loading...</div>
     </div>
 
     <!-- Main Content -->
-    <div class="container main-container" style="display:none;">
-        <!-- Registration Form -->
-        <div class="form-container">
-            <h2>Be a Swayamsevak </h2>
-            <form id="regForm">
-                <div class="mb-3">
-                    <label class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Phone</label>
-                    <input type="text" class="form-control" id="phone" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Address</label>
-                    <input type="text" class="form-control" id="address" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Age</label>
-                    <input type="number" class="form-control" id="age" required>
-                </div>
-                <button type="submit" class="btn btn-primary w-100">Register</button>
-            </form>
-            <div id="msg" class="mt-3 text-center"></div>
-        </div>
+    <div class="container my-4">
+        <div class="row g-4 main-container" style="display:none;">
 
-        <!-- Right Side: Library & Notice Board -->
-        <div>
-            <div class="library">
-                <h3>📚 Spiritual Library</h3>
-                <div class="library-item">
-                    <span>Dristikon</span>
-                    <a href="/BoOk/Dristikon-1.pdf" class="btn btn-sm btn-primary" download>Download PDF</a>
-                </div>
-                <div class="library-item">
-                    <span>આઝાદ નગર વસ્તી વાલી રચના</span>
-                    <a href="/BoOk/આઝાદ નગર વસ્તી વાલી રચના (1).pdf" class="btn btn-sm btn-primary" download>Download
-                        PDF</a>
-                </div>
-                <div class="library-item">
-                    <span>Parichay</span>
-                    <a href="BoOk/Parichay-1.pdf" class="btn btn-sm btn-primary" download>Download PDF</a>
+            <!-- Registration Form -->
+            <div class="col-12 col-md-6">
+                <div class="form-container">
+                    <h2>Be a Swayamsevak</h2>
+                    <form id="regForm">
+                        <div class="mb-3">
+                            <label class="form-label">Name:</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Age:</label>
+                            <input type="number" id="age" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Address:</label>
+                            <input type="text" id="address" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone:</label>
+                            <input type="number" id="phone" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+                    </form>
+                    <div id="status" class="mt-3 text-center fw-bold"></div>
                 </div>
             </div>
 
-            <div class="notice-board">
-                <h3>📜 Notice Board</h3>
-                <div class="notice-item">આઝાદ નગર વસ્તી વાલી રચના (1)</div>
-                <div class="notice-item">🌸 Dristikon-1</div>
-                <div class="notice-item">🌸 रा०_स्व०_संघ_कार्यकर्ता</div>
-                <div class="notice-item">📖Parichay-1</div>
+            <!-- Library & Notice Board -->
+            <div class="col-12 col-md-6">
+                <div class="library">
+                    <h3>📚 Spiritual Library</h3>
+                    <div class="library-item">
+                        <span>Dristikon</span>
+                        <a href="/BoOk/Dristikon-1.pdf" class="btn btn-sm btn-primary" download>Download PDF</a>
+                    </div>
+                    <div class="library-item">
+                        <span>આઝાદ નગર વસ્તી વાલી રચના</span>
+                        <a href="/BoOk/આઝાદ નગર વસ્તી વાલી રચના (1).pdf" class="btn btn-sm btn-primary"
+                            download>Download PDF</a>
+                    </div>
+                    <div class="library-item">
+                        <span>Parichay</span>
+                        <a href="BoOk/Parichay-1.pdf" class="btn btn-sm btn-primary" download>Download PDF</a>
+                    </div>
+                </div>
+
+                <div class="notice-board">
+                    <h3>📜 Notice Board</h3>
+                    <div class="notice-item">આઝાદ નગર વસ્તી વાલી રચના (1)</div>
+                    <div class="notice-item">🌸 Dristikon-1</div>
+                    <div class="notice-item">🌸 रा०_स्व०_संघ_कार्यकर्ता</div>
+                    <div class="notice-item">📖 Parichay-1</div>
+                </div>
             </div>
         </div>
     </div>
@@ -201,8 +212,35 @@
         window.addEventListener("load", () => {
             setTimeout(() => {
                 document.getElementById("loader").style.display = "none";
-                document.querySelector(".main-container").style.display = "grid";
-            }, 2000); // 2 sec
+                document.querySelector(".main-container").style.display = "flex";
+            }, 2000);
+        });
+
+        const scriptURL = "https://script.google.com/macros/s/AKfycbxiN-u4yFjNIY0Utx0aC5gD1mru_pMyh75xiEh8yKhcGjoQ423j-oL4wx7Zkw_tlZ73Dg/exec";
+
+        document.getElementById("regForm").addEventListener("submit", e => {
+            e.preventDefault();
+
+            const data = {
+                name: document.getElementById("name").value,
+                age: document.getElementById("age").value,
+                address: document.getElementById("address").value,
+                phone: document.getElementById("phone").value
+            };
+
+            fetch(scriptURL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+                .then(() => {
+                    document.getElementById("status").innerText = "✅ Registered Successfully!";
+                    document.getElementById("regForm").reset();
+                })
+                .catch(err => {
+                    document.getElementById("status").innerText = "❌ Error: " + err;
+                });
         });
     </script>
 </body>
